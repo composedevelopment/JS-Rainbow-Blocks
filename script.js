@@ -14,7 +14,9 @@ for (let x = 0; x < 10; x++) {
       element.addEventListener("touchmove", e => {
           let touch = e.touches[0];
           var el = grid.elementFromPoint(touch.clientX, touch.clientY)
+          if (el) {
           el.classList.add("spin")
+          }
       })
       element.addEventListener("mouseover", function() {
         element.classList.add("spin")
