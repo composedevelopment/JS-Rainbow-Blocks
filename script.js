@@ -16,7 +16,7 @@ for (let x = 0; x < 10; x++) {
         let el = document.elementFromPoint(touch.clientX, touch.clientY)
         if (el) {
         el.classList.add("spin")
-  }
+        }
       })
       element.addEventListener("mouseover", function() {
         element.classList.add("spin")
