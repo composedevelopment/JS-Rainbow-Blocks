@@ -21,6 +21,14 @@ for (let x = 0; x < 10; x++) {
     }
 }
 
+document.addEventListener("touchstart touchmove", e => {
+  let touch = e.touches[0];
+  var el = document.elementFromPoint(touch.clientX, touch.clientY)
+  if (el) {
+  el.classList.add("spin")
+  }
+})
+
 grid.addEventListener("touchmove", e => {
   document.querySelector(".below").style.animation = "popup 1s forwards"
 }, {once: true})
