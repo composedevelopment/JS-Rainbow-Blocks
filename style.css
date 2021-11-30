@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  touch-action: none;
 }
 
 body {
@@ -58,7 +57,7 @@ body {
   z-index: 1;
 }
 
-.grid > *:hover {
+.grid > *:active, .grid > *:hover {
   background-color: hsl(var(--tilecolor), 100%, 50%);
   transform: scale(1.5) rotate(540deg);
   z-index: 2;
