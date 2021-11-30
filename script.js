@@ -12,7 +12,11 @@ for (let x = 0; x < 10; x++) {
     for (let y = 0; y < 10; y++) {
       const element = document.createElement("div")
       element.addEventListener("touchstart touchmove", e => {
-          element.classList.add("spin")
+        let touch = e.touches[0];
+        let el = document.elementFromPoint(touch.clientX, touch.clientY)
+        if (el) {
+        el.classList.add("spin")
+  }
       })
       element.addEventListener("mouseover", function() {
         element.classList.add("spin")
@@ -21,13 +25,13 @@ for (let x = 0; x < 10; x++) {
     }
 }
 
-document.addEventListener("touchstart touchmove", e => {
+/*document.addEventListener("touchstart touchmove", e => {
   let touch = e.touches[0];
   var el = document.elementFromPoint(touch.clientX, touch.clientY)
   if (el) {
   el.classList.add("spin")
   }
-})
+})*/
 
 grid.addEventListener("touchmove", e => {
   document.querySelector(".below").style.animation = "popup 1s forwards"
