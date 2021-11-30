@@ -5,20 +5,24 @@ setInterval(function() {
   grid.style.setProperty("--tilecolor", time)
   time += 1
 }, 50);
+
 const board = []
 for (let x = 0; x < 10; x++) {
     const row = []
     for (let y = 0; y < 10; y++) {
       const element = document.createElement("div")
-      element.classList.add('MyClass' + x + y)
+      element.addEventListener("mouseover", function() {
+          element.classList.add("spin")
+      })
           grid.append(element)
     }
 }
 
-document.addEventListener("mousemove", e => {
-    //console.log(Math.floor(e.pageX / 5))
-})
+grid.addEventListener("mouseover", function() {
+  document.querySelector(".below").style.animation = "popup 1s forwards"
+}, {once: true})
 
-function mouseCheck() {
-  console.log(e.pageX)
-}
+document.addEventListener("click", e => {
+  let spins = document.querySelectorAll(".spin")
+  Array.from(spins).forEach(function (el) {el.classList.remove("spin")})
+})

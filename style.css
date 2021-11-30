@@ -14,26 +14,56 @@ body {
 
 .heading {
   margin: 25px;
+  opacity: 0%;
+  transform: translateY(200%);
+  animation: popup 2s forwards;
+  animation-delay: 1s;
+}
+
+.below {
+  transition: 1s;
+  margin: 25px;
+  opacity: 0%;
+  transform: translateY(-200%);
+  z-index: -1;
+}
+
+@keyframes popup {
+  100% {
+    transform: translateY(0%);
+    opacity: 100%;
+  }
 }
 
 .grid {
   display: inline-grid;
-  padding: 0px;
   grid-template-columns: repeat(var(--size), 40px);
   grid-template-rows: repeat(var(--size), 40px);
   gap: 0px;
-  background-color: #000;
+  background-color: var(--tilecolor);
+  color: var(--tilecolor);
+  position:relative;
+  transition: .1s;
 }
 
 .grid > * {
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: hsl(var(--tilecolor), 100%, 50%);
   border: 1px solid #000;
   user-select: none;
+  transition: .5s;
+  position:relative;
 }
 
+.grid > *:hover {
+  background-color: hsl(var(--tilecolor), 100%, 50%);
+  transform: scale(1.5) rotate(540deg);
+  z-index: 2;
+  box-shadow: 200px black;
+}
 
+.spin {
+  background-color: hsl(180, 100%, 50%);
+}
